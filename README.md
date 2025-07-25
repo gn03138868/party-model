@@ -1,4 +1,6 @@
 # party-model
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.0.1-red)](https://pytorch.org/)
+[![CUDA](https://img.shields.io/badge/CUDA-12.2-green)](https://developer.nvidia.com/cuda-toolkit)
 
 A hybrid Transformer-CNN architecture for precise sieve mesh segmentation in industrial inspection scenarios.
 
@@ -23,9 +25,6 @@ A hybrid Transformer-CNN architecture for precise sieve mesh segmentation in ind
 ### Prerequisites
 - NVIDIA GPU with CUDA 12.2+ support
 - Python 3.9+
-
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.0.1-red)](https://pytorch.org/)
-[![CUDA](https://img.shields.io/badge/CUDA-12.2-green)](https://developer.nvidia.com/cuda-toolkit)
 
 
 ### Setup Environment
