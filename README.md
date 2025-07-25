@@ -97,11 +97,20 @@ python src/predict_batch.py \
 Edit `configs/default.yaml`:
 ```yaml
 data_path: "data/"
-batch_size: 8
-epochs: 100
-lr: 0.0001
-image_size: 224
-mixed_precision: True  # Enable AMP training
+batch_size: 4
+epochs: 250
+lr: 1.0e-5         # 使用科學計數法表示
+patch_size: 400    # 可調整，值越小識別越精細
+val_split: 0.2     # 小數形式
+
+# 模型架構選項：
+#  - "TransUNet": 使用原始 TransUNet 模型
+#  - "TransUNetWithTimm": 使用 timm 載入的 ViT encoder，並保持原有 decoder 結構
+model_type: "TransUNet"
+
+num_decoder_conv_layers: 80   # 可隨意修改 decoder 中卷積層數量（例如預設 30 層），根據過往的研究，層數太高會丟失細節，太低會分辨不佳，大概20-30層之間
+#25層好像也不太可以，目前測試80-120對篩管的辨識還不錯
+
 ```
 
 ## 📊 Performance
