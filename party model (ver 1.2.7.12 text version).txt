@@ -44,7 +44,7 @@
 
 ##系統的架構
 
-party model/
+party-model/
 ├── configs/              # Configuration templates
 │   ├── default.yaml
 ├── data/                # Dataset storage
