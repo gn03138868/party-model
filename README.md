@@ -17,7 +17,7 @@ A hybrid Transformer-CNN architecture for precise Phloem Area and Root Turnover 
 
 ## ✨ Features
 - **Dual-mode Architecture**: Combines Vision Transformer encoder with CNN decoder
-- **Industrial-grade**: Supports 400x400 high-resolution input with 16-bit precision
+- **Industrial-grade**: Supports any size of high-resolution input images
 - **Real-time Processing**: 45ms inference time on NVIDIA T4 GPU
 - **Adaptive Learning**: Automatic mixed precision training support
 
