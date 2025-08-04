@@ -29,8 +29,8 @@ A hybrid Transformer-CNN architecture for precise Phloem Area and Root Turnover 
 
 ### Setup Environment
 ```bash
-conda create -n sievenet python=3.9
-conda activate sievenet
+conda create -n partymodel python=3.9
+conda activate partymodel
 pip install -r requirements.txt
 ```
 
