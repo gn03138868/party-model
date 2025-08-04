@@ -131,7 +131,7 @@ num_decoder_conv_layers: 80   # 可隨意修改 decoder 中卷積層數量（例
 
 ## 📂 Project Structure
 ```
-party-model/
+party model/
 ├── configs/              # Configuration templates
 │   ├── default.yaml
 ├── data/                # Dataset storage
