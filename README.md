@@ -23,7 +23,7 @@ A hybrid Transformer-CNN architecture for precise Phloem Area and Root Turnover 
 
 ## 🚀 Installation
 ### Prerequisites
-- NVIDIA GPU with CUDA 12.2+ support
+- NVIDIA GPU with CUDA 12.1+ support
 - Python 3.9+
 
 
