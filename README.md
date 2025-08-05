@@ -40,8 +40,7 @@ pip install -r requirements.txt
 pip uninstall torch torchvision torchaudio
 pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128
 ```
-then remove ", verbose=True" in L85 in the file "src/train.py"
-add cuda to scaler = GradScaler() in L91, then it will like scaler = GradScaler('cuda')  
+Then remove ", verbose=True" in L85 in the file "src/train.py" and add cuda to scaler = GradScaler() in L91, then it will like scaler = GradScaler('cuda')  
 
 
 ## 📁 Data Preparation
