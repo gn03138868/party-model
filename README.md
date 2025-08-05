@@ -34,6 +34,12 @@ conda activate partymodel
 cd party-model
 pip install -r requirements.txt
 ```
+#Note: If your GPU is over RTX5060 with Blackwell, it is better to install PyTorch Nightly + CUDA 12.8
+
+```bash
+pip uninstall torch torchvision torchaudio
+pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128
+```
 
 ## 📁 Data Preparation
 ### Directory Structure
