@@ -31,6 +31,7 @@ A hybrid Transformer-CNN architecture for precise Phloem Area and Root Turnover 
 ```bash
 conda create -n partymodel python=3.9
 conda activate partymodel
+cd party-model
 pip install -r requirements.txt
 ```
 
