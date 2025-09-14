@@ -4,7 +4,7 @@
 
 A hybrid Transformer-CNN architecture for precise Phloem Area and Root Turnover Yield (party).
 
-## 📋 Table of Contents
+## Table of Contents
 - [Features](#-features)
 - [Installation](#-installation)
 - [Data Preparation](#-data-preparation)
