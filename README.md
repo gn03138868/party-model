@@ -5,23 +5,23 @@
 A hybrid Transformer-CNN architecture for precise Phloem Area and Root Turnover Yield (party).
 
 ## 📋 Table of Contents
-- [Features](#✨-features)
-- [Installation](#🚀-installation)
-- [Data Preparation](#📁-data-preparation)
-- [Training](#🎯-training)  
-- [Inference](#🔍-inference)
-- [Configuration](#⚙️-configuration)
-- [Performance](#📊-performance)
-- [Project Structure](#📂-project-structure)
-- [License](#📜-license)
+- [Features](#-features)
+- [Installation](#-installation)
+- [Data Preparation](#-data-preparation)
+- [Training](#-training)  
+- [Inference](#-inference)
+- [Configuration](#⚙-configuration)
+- [Performance](#-performance)
+- [Project Structure](#-project-structure)
+- [License](#-license)
 
-## ✨ Features
+## Features
 - **Dual-mode Architecture**: Combines Vision Transformer encoder with CNN decoder
 - **Industrial-grade**: Supports any size of high-resolution input images
 - **Real-time Processing**: 45ms inference time on NVIDIA T4 GPU
 - **Adaptive Learning**: Automatic mixed precision training support
 
-## 🚀 Installation
+## Installation
 ### Prerequisites
 - NVIDIA GPU with CUDA 12.1+ support
 - Python 3.9+
@@ -43,7 +43,7 @@ pip install --pre torch torchvision torchaudio --index-url https://download.pyto
 Then remove ", verbose=True" in L85 in the file "src/train.py" and add cuda to scaler = GradScaler() in L91, then it will like scaler = GradScaler('cuda')  
 
 
-## 📁 Data Preparation
+## Data Preparation
 ### Directory Structure
 ```
 ├── data/                
@@ -65,7 +65,7 @@ Then remove ", verbose=True" in L85 in the file "src/train.py" and add cuda to s
   - `sieve_123.jpg` ↔ `sieve_123.png`
 - Supported resolutions: 400x400 to 2000x2000
 
-## 🎯 Training
+## Training
 ### Start Training
 ```bash
 python src/train.py --config configs/default.yaml
@@ -85,7 +85,7 @@ TensorBoard integration:
 tensorboard --logdir outputs/tensorboard
 ```
 
-## 🔍 Inference
+## Inference
 ### Single Image Prediction
 ```bash
 python src/predict.py \
@@ -102,7 +102,7 @@ python src/predict_batch.py \
     --output_dir outputs/predictions/
 ```
 
-## ⚙️ Configuration
+## Configuration
 Edit `configs/default.yaml`:
 ```yaml
 data_path: "data/"
@@ -122,7 +122,7 @@ num_decoder_conv_layers: 80   # 可隨意修改 decoder 中卷積層數量（例
 
 ```
 
-## 📊 Performance
+## Performance
 ### Evaluation Metrics (Test Set)
 | Metric        | Value  |
 |---------------|--------|
@@ -138,7 +138,7 @@ num_decoder_conv_layers: 80   # 可隨意修改 decoder 中卷積層數量（例
 | RTX 3090      | 28ms           | 4.1GB        |
 | A100 (40GB)   | 18ms           | 5.8GB        |
 
-## 📂 Project Structure
+## Project Structure
 ```
 party model/
 ├── configs/              # Configuration templates
@@ -172,5 +172,5 @@ party model/
 └── README,md
 ```
 
-## 📜 License
+## License
 Apache 2.0 License. See [LICENSE](LICENSE) for details.
