@@ -34,11 +34,11 @@ conda activate partymodel
 cd party-model
 pip install -r requirements.txt
 ```
-#Note: If your GPU is over RTX5060 with Blackwell, it is better to install PyTorch Nightly + CUDA 12.8
+#Note: If your GPU is over RTX5060 with Blackwell, it is better to install PyTorch Nightly + CUDA 12.1
 
 ```bash
 pip uninstall torch torchvision torchaudio
-pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
 ```
 Then remove ", verbose=True" in L85 in the file "src/train.py" and add cuda to scaler = GradScaler() in L91, then it will like scaler = GradScaler('cuda')  
 
