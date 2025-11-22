@@ -66,6 +66,10 @@ Then remove ", verbose=True" in L85 in the file "src/train.py" and add cuda to s
 - Supported resolutions: 400x400 to 2000x2000
 
 ## Training
+### Start Training by UI
+```bash
+streamlit run partymodel_ui.py
+```
 ### Start Training
 ```bash
 python src/train.py --config configs/default.yaml
