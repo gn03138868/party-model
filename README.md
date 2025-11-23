@@ -31,15 +31,17 @@ A hybrid Transformer-CNN architecture for precise Phloem Area and Root Turnover 
 ```bash
 conda create -n partymodel python=3.9
 conda activate partymodel
-cd party-model
 pip install -r requirementsRTX5060.txt
-pip install opencv-python
+cd party-model
+
 ```
-#Note: If your GPU is over RTX5060 with Blackwell, it is better to install PyTorch Nightly + CUDA 12.1
+#Note: If your GPU is RTX5080 with Blackwell, it is better to install PyTorch CUDA 12.8
 
 ```bash
-pip uninstall torch torchvision torchaudio
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+conda create -n partymodel_cuda128 python=3.11
+conda activate partymodel_cuda128
+pip install -r requirementsRTX5080.txt
+cd party-model
 ```
 Then remove ", verbose=True" in L85 in the file "src/train.py" and add cuda to scaler = GradScaler() in L91, then it will like scaler = GradScaler('cuda')  
 
