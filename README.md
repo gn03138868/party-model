@@ -32,7 +32,7 @@ A hybrid Transformer-CNN architecture for precise Phloem Area and Root Turnover 
 conda create -n partymodel python=3.9
 conda activate partymodel
 cd party-model
-pip install -r requirements.txt
+pip install -r requirementsRTX5060.txt
 ```
 #Note: If your GPU is over RTX5060 with Blackwell, it is better to install PyTorch Nightly + CUDA 12.1
 
