@@ -77,18 +77,22 @@ def main(config_path='configs/default.yaml'):
             model.load_state_dict(state_dict)
             print(f"成功載入預訓練模型: {pretrained_path}")
         except Exception as e:
-            print(f"載入預訓練模型失敗: {e}\n將從頭開始訓練。")
+            print(f"載入預訓練模型失敗，如同人生: {e}\n將從頭開始訓練。")
     else:
         print(f"在 {pretrained_path} 找不到預訓練模型，將從頭開始訓練。")
     
+    # Convert string to float if needed (不同版本的RTX50系列有時候會要求要有點或沒點點)
+    if isinstance(config['lr'], str):
+        config['lr'] = float(config['lr'])
+    
     optimizer = optim.AdamW(model.parameters(), lr=config['lr'], weight_decay=1e-5)
-    scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=5, verbose=True)
+    scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=5)
     
     # 使用動態 Dice+BCE 損失
     criterion = CombinedLoss(initial_bce_weight=0.5, max_bce_weight=1.0,
                               stable_epoch=50, schedule_epochs=50)
     
-    scaler = GradScaler()
+    scaler = GradScaler('cuda')
     
     best_val_loss = float('inf')
     #這邊
@@ -188,7 +192,8 @@ def main(config_path='configs/default.yaml'):
                         true_mask = cv2.imread(mask_path, cv2.IMREAD_GRAYSCALE)
                         if orig_img is not None and true_mask is not None:
                             predictor = SievePredictor(model=model, patch_size=config['patch_size'],
-                                                        threshold=0.4, pred_batch_size=16)
+                                                        threshold=0.3, pred_batch_size=16)
+                            #threshold越低，敏感度越高
                             pred_mask = predictor.predict_single_return(img_path)
                             save_path = os.path.join("outputs/predictions", f"val_epoch{epoch+1}.png")
                             visualize(orig_img, true_mask, pred_mask, save_path)
@@ -212,7 +217,7 @@ def main(config_path='configs/default.yaml'):
                     #    break
                     #if best_model_state is not None:
                     #    model.load_state_dict(best_model_state)
-                    #    print("回滾至最佳模型狀態。")
+                    #    print("回滾至最佳模型狀態。滾起來~")
             else:
                 print(f'Epoch {epoch+1} No valid validation batches.')
             
@@ -221,4 +226,7 @@ def main(config_path='configs/default.yaml'):
     
 if __name__ == '__main__':
     main()
+
+
+
 
