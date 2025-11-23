@@ -33,6 +33,7 @@ conda create -n partymodel python=3.9
 conda activate partymodel
 cd party-model
 pip install -r requirementsRTX5060.txt
+pip install opencv-python
 ```
 #Note: If your GPU is over RTX5060 with Blackwell, it is better to install PyTorch Nightly + CUDA 12.1
 
